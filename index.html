@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJT ADB TOOL PRO - Oficial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --dark-bg: #050a12;
+            --card-bg: #0d141f;
+            --text-gray: #afbac4;
+            --neon-blue: #00f2ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        /* Navegação */
+        .nav-bar {
+            background: rgba(13, 20, 31, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { font-size: 1.5em; font-weight: bold; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary-blue); }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+            font-size: 0.85em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover { color: var(--neon-blue); }
+
+        /* Banner Principal */
+        header {
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: radial-gradient(circle at top right, rgba(0, 123, 255, 0.15), transparent);
+            flex-wrap: wrap;
+        }
+
+        .hero-text h1 { font-size: 3.5em; margin: 20px 0; }
+        .hero-image img { max-width: 100%; border-radius: 15px; filter: drop-shadow(0 0 20px rgba(0, 123, 255, 0.3)); }
+
+        /* Botões */
+        .btn { padding: 15px 30px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary-blue); color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,123,255,0.3); }
+
+        /* Secção MDM FILE (Downloads Atualizada) */
+        .download-container { padding: 30px 5%; }
+        .download-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .download-table th, .download-table td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .download-table th { background: rgba(0, 123, 255, 0.15); color: var(--neon-blue); font-size: 0.85em; text-transform: uppercase; }
+        .download-table td { font-size: 0.9em; color: #fff; }
+
+        .btn-action { padding: 6px 12px; border-radius: 4px; font-size: 0.75em; text-decoration: none; color: white; font-weight: bold; display: inline-flex; align-items: center; gap: 5px; }
+        .btn-whatsapp { background: #25d366; }
+        .btn-telegram { background: #0088cc; margin-left: 5px; }
+
+        /* Funcionalidades */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+        .feature-card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .feature-card i { font-size: 2.5em; color: var(--primary-blue); margin-bottom: 15px; }
+
+        /* Login */
+        .login-box { max-width: 400px; margin: 80px auto; background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--primary-blue); text-align: center; }
+        .input-group { margin-bottom: 15px; text-align: left; position: relative; }
+        .input-group input { width: 100%; padding: 12px; background: #050a12; border: 1px solid #1d2633; border-radius: 6px; color: white; box-sizing: border-box; }
+        .eye-btn { position: absolute; right: 12px; top: 12px; cursor: pointer; color: var(--text-gray); }
+
+        footer { text-align: center; padding: 40px; color: var(--text-gray); border-top: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+    <div class="logo"><i class="fas fa-microchip"></i> MJT <span>TOOLS</span></div>
+    <div class="nav-links">
+        <a onclick="showSection('home')">Início</a>
+        <a onclick="showSection('features')">Funcionalidades</a>
+        <a onclick="showSection('mdm')">MDM File</a>
+        <a onclick="('Reseller')">RESELLER</a>
+    </div>
+</nav>
+
+<div id="home-section" class="section">
+    <header>
+<header>
+        <div class="hero-text">
+            <h1>MJT ADB<br><span style="color: var(--primary-blue);">TOOL PRO</span></h1>
+            <p>Clique Em Download.</p>
+            
+            <a href="https://www.mediafire.com/file/frdmckyukhnhrs0/MJT_ADB_Tool_Pro.zip/file" class="btn btn-primary" download>
+                <i class="fas fa-download"></i> Domload NOW Lastet Version
+            </a>
+            
+            <button onclick="showSection('features')" class="btn" style="background: rgba(255,255,255,0.1); color: white; margin-left: 10px;">
+                SAIBA MAIS
+            </button>
+        </div>
+        <div class="hero-image">
+            <img src="Para O Site.png" alt="MJT Pro">
+        </div>
+    </header>
+    </header>
+</div>
+
+<div id="features-section" class="section" style="display:none; padding: 50px 5%;">
+<div style="text-align: center; margin-bottom: 50px;">
+        <span class="badge">Recursos Avançados</span>
+        <h2 style="font-size: 2.5em; margin-top: 15px; letter-spacing: 1px;">MJT <span style="color: var(--primary-blue);">POWER</span> FEATURES</h2>
+        <p style="color: var(--text-gray);">Soluções definitivas para desbloqueio e manutenção profissional.</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>KG Lock (Knox Guard)</h3>
+            <p>Remoção definitiva e segura do bloqueio Knox Guard em dispositivos Samsung.</p>
+            <div style="font-size: 0.7em; color: var(--neon-blue); margin-top: 10px;">STATUS: 🟢 SUPORTADO</div>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-user-lock"></i>
+            <h3>MDM Removal</h3>
+            <p>Remova restrições de Gerenciamento de Dispositivos Móveis de forma rápida.</p>
+            <div style="font-size: 0.7em; color: var(--neon-blue); margin-top: 10px;">STATUS: 🟢 SUPORTADO</div>
+        </div>
+
+        <div class="feature-card">
+            <i class="fab fa-google"></i>
+            <h3>FRP Bypass</h3>
+            <p>Bypass e remoção de conta Google em poucos segundos para várias marcas.</p>
+            <div style="font-size: 0.7em; color: var(--neon-blue); margin-top: 10px;">STATUS: 🟢 SUPORTADO</div>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-cloud"></i>
+            <h3>MiCloud Bypass</h3>
+            <p>Desbloqueio e bypass de Mi Account para dispositivos Xiaomi.</p>
+            <div style="font-size: 0.7em; color: var(--neon-blue); margin-top: 10px;">STATUS: 🟢 SUPORTADO</div>
+        </div>
+
+        <div class="feature-card" style="border-color: var(--neon-blue);">
+            <i class="fas fa-star" style="color: #f1c40f;"></i>
+            <h3>MDM By (Super)</h3>
+            <p>Método exclusivo MJT para bloqueios MDM de alta complexidade.</p>
+            <div style="font-size: 0.7em; color: #f1c40f; margin-top: 10px;">STATUS: ⭐ EXCLUSIVO</div>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Multi-Brand Support</h3>
+            <p>Samsung, Xiaomi, Huawei, Tecno, Infinix, Itel e muito mais.</p>
+            <div style="font-size: 0.7em; color: var(--neon-blue); margin-top: 10px;">STATUS: 🟢 FULL COMPATIBLE</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 80px; padding: 40px; background: rgba(0, 123, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 123, 255, 0.1);">
+        <h3 style="text-align: center; margin-bottom: 30px;"><i class="fas fa-microchip"></i> Requisitos do Sistema</h3>
+        <div class="requirements-container">
+            <div class="req-item"><i class="fab fa-windows"></i><p>Windows 7/8/10/11 (x64)</p></div>
+            <div class="req-item"><i class="fas fa-code"></i><p>.NET Framework 4.8</p></div>
+            <div class="req-item"><i class="fas fa-usb"></i><p>Drivers USB MJT</p></div>
+        </div>
+    </div>
+</div>
+
+<div id="mdm-section" class="section" style="display:none; padding: 50px 5%;">
+    <h2 style="text-align: center; margin-bottom: 30px;">Downloads - MDM & Firmware</h2>
+    <div class="download-container">
+        <table class="download-table">
+            <thead>
+                <tr>
+                    <th><i class="fas fa-mobile-alt"></i> Modelo / Versão</th>
+                    <th><i class="fas fa-comment-dots"></i> Solicitar Link</th>
+                </tr>
+            </thead>
+            <tbody id="mdm-list">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="login-section" class="section" style="display:none;">
+    <div class="login-box">
+        <h2>Área do Cliente</h2>
+        <div class="input-group"><input type="text" id="username" placeholder="Seu Nome"></div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Sua Senha">
+            <i class="fas fa-eye eye-btn" onclick="togglePass()"></i>
+        </div>
+        <label style="display: block; margin-bottom: 15px; font-size: 0.8em; color: var(--text-gray); cursor: pointer;">
+            <input type="checkbox" id="rememberMe"> Lembrar-me
+        </label>
+        <button class="btn btn-primary" style="width: 100%;" onclick="handleAuth()">ENTRAR NO PAINEL</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 MJT ADB TOOL PRO - Luanda, Angola.</p>
+</footer>
+
+<script>
+const GITHUB_URL = 'https://raw.githubusercontent.com/ManuelAdmin/MJT_DB/main/.txt';
+
+    // Lista de Modelos Atualizada
+    const modelos = [
+        "Infinix X6532C V1116", "Itel A667L V1771", "Itel A667L V1835", "Itel A667L v1885",
+        "Itel A667L V1900", "Itel A6610L V1570", "Itel A6610L V1611", "Itel A6610L V1677",
+        "Itel A6610L V1738", "Itel C671L V1596", "Tecno BG6M V1790", "Tecno BG6M V1813",
+        "Tecno BG6M V1885", "Tecno KM4 15.1.0.113SP09", "ZTE A34", "ZTE A54"
+    ];
+
+    window.onload = () => {
+        // Preencher a tabela de MDM automaticamente
+        const tableBody = document.getElementById('mdm-list');
+        modelos.forEach(modelo => {
+            const row = `<tr>
+                <td>${modelo}</td>
+                <td>
+                    <a href="https://wa.me/244972448862" target="_blank" class="btn-action btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://t.me/952902575" target="_blank" class="btn-action btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+                </td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+
+        if(localStorage.getItem('mjt_user')) {
+            document.getElementById('username').value = localStorage.getItem('mjt_user');
+            document.getElementById('password').value = localStorage.getItem('mjt_pass');
+            document.getElementById('rememberMe').checked = true;
+        }
+    };
+
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+        document.getElementById(id + '-section').style.display = 'block';
+        window.scrollTo(0,0);
+    }
+
+    function togglePass() {
+        const p = document.getElementById('password');
+        p.type = p.type === 'password' ? 'text' : 'password';
+    }
+
+    async function handleAuth() {
+        const u = document.getElementById('username').value.trim();
+        const p = document.getElementById('password').value.trim();
+        const r = document.getElementById('rememberMe').checked;
+
+        try {
+            const res = await fetch(GITHUB_URL);
+            const data = await res.text();
+            const lines = data.split('\n');
+            let user = null;
+
+            lines.forEach(l => {
+                const pts = l.split(',');
+                if(pts[0]?.trim() === u && pts[1]?.trim() === p) user = pts;
+            });
+
+            if(user) {
+                if(r) { localStorage.setItem('mjt_user', u); localStorage.setItem('mjt_pass', p); }
+                else { localStorage.clear(); }
+                alert("Bem-vindo, " + u + "!");
+            } else { alert("Dados incorretos!"); }
+        } catch(e) { alert("Erro de conexão!"); }
+    }
+</script>
+</body>
+</html>
